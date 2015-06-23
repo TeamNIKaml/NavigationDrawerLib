@@ -25,15 +25,10 @@ public class NavigationDrawerActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-
 	private List<NavDrawerItem> navigationDrawerItemList;
-
 	private CharSequence mDrawerTitle;
-
 	private CharSequence mTitle;
-
 	private NavDrawerListAdapter adapter;
-
 	private List<Fragment> fragmentList;
 
 	@Override
@@ -41,9 +36,70 @@ public class NavigationDrawerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_navigation_drawer);
 
+		init();
+
+		if (savedInstanceState == null) {
+			// on first time display view for first nav item
+			displayView(0);
+		}
+	}
+
+	/**
+	 * @author Nikhil V Jun 23, 2015
+	 */
+	private void init() {
+		// TODO Auto-generated method stub
+
 		mTitle = mDrawerTitle = getTitle();
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+
+		setDrawerAdaptor();
+
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+
+		setListners();
+
+	}
+
+	/**
+	 * @author Nikhil V Jun 23, 2015
+	 */
+	private void setListners() {
+		// TODO Auto-generated method stub
+
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, true,
+				R.drawable.ic_drawer, // nav menu toggle icon
+				R.string.app_name, // nav drawer open - description for
+									// accessibility
+				R.string.app_name // nav drawer close - description for
+									// accessibility
+		)
+
+		{
+			public void onDrawerClosed(View view) {
+				getActionBar().setTitle(mTitle);
+
+				// calling onPrepareOptionsMenu() to show action bar icons
+				invalidateOptionsMenu();
+			}
+
+			public void onDrawerOpened(View drawerView) {
+				getActionBar().setTitle(mDrawerTitle);
+				// calling onPrepareOptionsMenu() to hide action bar icons
+				invalidateOptionsMenu();
+			}
+		};
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+	}
+
+	/**
+	 * @author Nikhil V Jun 23, 2015
+	 */
+	private void setDrawerAdaptor() {
+		// TODO Auto-generated method stub
 
 		Mapper mapper = Mapper.getMapper();
 
@@ -57,35 +113,6 @@ public class NavigationDrawerActivity extends Activity {
 				navigationDrawerItemList);
 		mDrawerList.setAdapter(adapter);
 
-		// enabling action bar app icon and behaving it as toggle button
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setHomeButtonEnabled(true);
-
-		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, // nav menu toggle icon
-				R.string.app_name, // nav drawer open - description for
-									// accessibility
-				R.string.app_name // nav drawer close - description for
-									// accessibility
-		) {
-			public void onDrawerClosed(View view) {
-				getActionBar().setTitle(mTitle);
-				// calling onPrepareOptionsMenu() to show action bar icons
-				invalidateOptionsMenu();
-			}
-
-			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle(mDrawerTitle);
-				// calling onPrepareOptionsMenu() to hide action bar icons
-				invalidateOptionsMenu();
-			}
-		};
-		mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-		if (savedInstanceState == null) {
-			// on first time display view for first nav item
-			displayView(0);
-		}
 	}
 
 	/**
@@ -113,22 +140,20 @@ public class NavigationDrawerActivity extends Activity {
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
-		
-		
+
 		// Handle action bar actions click
 		switch (item.getItemId()) {
-		
-		/*  case R.id.action_settings: 
-			  return true;*/
-		 
+
+		/*
+		 * case R.id.action_settings: return true;
+		 */
+
 		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}
 
-	/* *
-	 * Called when invalidateOptionsMenu() is triggered
-	 */
+	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// if nav drawer is opened, hide the action items
@@ -153,7 +178,7 @@ public class NavigationDrawerActivity extends Activity {
 			// update selected item and title, then close the drawer
 			mDrawerList.setItemChecked(position, true);
 			mDrawerList.setSelection(position);
-			 setTitle(navigationDrawerItemList.get(position).getTitle());
+			setTitle(navigationDrawerItemList.get(position).getTitle());
 			mDrawerLayout.closeDrawer(mDrawerList);
 		} else {
 			// error in creating fragment
@@ -171,7 +196,7 @@ public class NavigationDrawerActivity extends Activity {
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 		// Sync the toggle state after onRestoreInstanceState has occurred.
-		//mDrawerToggle.syncState();
+		mDrawerToggle.syncState();
 	}
 
 	@Override

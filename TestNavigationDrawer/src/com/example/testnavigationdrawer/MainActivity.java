@@ -37,7 +37,9 @@ public class MainActivity extends Activity {
 		setData();
 		
 		Intent intent = new Intent(getApplicationContext(),NavigationDrawerActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);
+		finish();
 		
 	
 
@@ -79,7 +81,7 @@ public class MainActivity extends Activity {
 		fragmentList.add(new PagesFragment());
 		fragmentList.add(new WhatsHotFragment());
 		
-		
+		//mapper.setDrawer(R.drawable.ic_drawer);
 		mapper.setFragmentList(fragmentList);
 		mapper.setNavigationDrawerItemList(navigationDrawerItemList);
 

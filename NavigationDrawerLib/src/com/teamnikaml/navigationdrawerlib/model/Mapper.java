@@ -14,21 +14,19 @@ import android.app.Fragment;
  * 
  */
 public class Mapper {
-	
-	
+
 	private static Mapper mapper;
-	
-	public static Mapper getMapper()
-	{
-		if(mapper == null)
+
+	public static Mapper getMapper() {
+		if (mapper == null)
 			mapper = new Mapper();
 		return mapper;
-		
+
 	}
 
 	private List<NavDrawerItem> navigationDrawerItemList;
-	
-	private List<Fragment>fragmentList; 
+
+	private List<Fragment> fragmentList;
 
 	public List<NavDrawerItem> getNavigationDrawerItemList() {
 		return navigationDrawerItemList;
@@ -47,5 +45,4 @@ public class Mapper {
 		this.fragmentList = fragmentList;
 	}
 
-	
 }
