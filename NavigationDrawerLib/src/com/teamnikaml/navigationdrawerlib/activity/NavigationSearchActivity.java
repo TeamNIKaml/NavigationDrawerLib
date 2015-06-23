@@ -1,3 +1,8 @@
+/**
+ * @author Nikhil V
+ *
+ * Jun 23, 2015
+ */
 package com.teamnikaml.navigationdrawerlib.activity;
 
 import java.util.List;
@@ -20,8 +25,12 @@ import com.teamnikaml.navigationdrawerlib.adapter.NavDrawerListAdapter;
 import com.teamnikaml.navigationdrawerlib.model.Mapper;
 import com.teamnikaml.navigationdrawerlib.model.NavDrawerItem;
 
+/**
+ * @author Nikhil V
+ * 
+ */
 @SuppressWarnings("deprecation")
-public class NavigationDrawerActivity extends Activity {
+public class NavigationSearchActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -130,7 +139,7 @@ public class NavigationDrawerActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.search, menu);
 		return true;
 	}
 
@@ -141,23 +150,26 @@ public class NavigationDrawerActivity extends Activity {
 			return true;
 		}
 
-		// Handle action bar actions click
-		switch (item.getItemId()) {
+		if (R.id.action_search == item.getItemId()) {
+			openSearch();
 
-		
-		// case R.id.action_settings: return true;
-		 
-
-		default:
-			return super.onOptionsItemSelected(item);
 		}
+		return true;
+	}
+
+	/**
+	 * @author Nikhil V Jun 23, 2015
+	 */
+	private void openSearch() {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// if nav drawer is opened, hide the action items
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+		//boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+		//menu.findItem(R.id.action_search).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
 

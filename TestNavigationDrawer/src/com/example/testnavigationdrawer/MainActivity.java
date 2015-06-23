@@ -17,6 +17,7 @@ import com.example.testnavigationdrawer.fragment.PagesFragment;
 import com.example.testnavigationdrawer.fragment.PhotosFragment;
 import com.example.testnavigationdrawer.fragment.WhatsHotFragment;
 import com.teamnikaml.navigationdrawerlib.activity.NavigationDrawerActivity;
+import com.teamnikaml.navigationdrawerlib.activity.NavigationSearchActivity;
 import com.teamnikaml.navigationdrawerlib.model.Mapper;
 import com.teamnikaml.navigationdrawerlib.model.NavDrawerItem;
 
@@ -36,7 +37,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		setData();
 		
-		Intent intent = new Intent(getApplicationContext(),NavigationDrawerActivity.class);
+		Intent intent = new Intent(getApplicationContext(),NavigationSearchActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);
 		finish();
