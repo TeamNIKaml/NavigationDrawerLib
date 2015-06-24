@@ -162,14 +162,21 @@ public class NavigationSearchActivity extends Activity {
 	 */
 	private void openSearch() {
 		// TODO Auto-generated method stub
+		Fragment searchFragment = Mapper.getMapper().getSearchFragment();
+
+		if (searchFragment != null) {
+			FragmentManager fragmentManager = getFragmentManager();
+			fragmentManager.beginTransaction()
+					.replace(R.id.frame_container, searchFragment).commit();
+		}
 
 	}
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// if nav drawer is opened, hide the action items
-		//boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		//menu.findItem(R.id.action_search).setVisible(!drawerOpen);
+		// boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+		// menu.findItem(R.id.action_search).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
 

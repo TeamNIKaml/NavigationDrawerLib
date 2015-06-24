@@ -17,6 +17,20 @@ public class Mapper {
 
 	private static Mapper mapper;
 	
+	private Fragment searchFragment = null;
+	
+	public Fragment getSearchFragment() {
+		return searchFragment;
+	}
+
+	public void setSearchFragment(Fragment searchFragment) {
+		this.searchFragment = searchFragment;
+	}
+
+	public static void setMapper(Mapper mapper) {
+		Mapper.mapper = mapper;
+	}
+
 	private String backGroundColor = "#FFFFFF", textColor = "#000000",
 			textColorSmall = "#FFFFFF";
 
