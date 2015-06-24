@@ -16,6 +16,33 @@ import android.app.Fragment;
 public class Mapper {
 
 	private static Mapper mapper;
+	
+	private String backGroundColor = "#FFFFFF", textColor = "#000000",
+			textColorSmall = "#FFFFFF";
+
+	public String getTextColorSmall() {
+		return textColorSmall;
+	}
+
+	public void setTextColorSmall(String textColorSmall) {
+		this.textColorSmall = textColorSmall;
+	}
+
+	public String getBackGroundColor() {
+		return backGroundColor;
+	}
+
+	public void setBackGroundColor(String backGroundColor) {
+		this.backGroundColor = backGroundColor;
+	}
+
+	public String getTextColor() {
+		return textColor;
+	}
+
+	public void setTextColor(String textColor) {
+		this.textColor = textColor;
+	}
 
 	public static Mapper getMapper() {
 		if (mapper == null)
