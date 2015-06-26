@@ -166,8 +166,15 @@ public class NavigationSearchActivity extends Activity {
 
 		if (searchFragment != null) {
 			FragmentManager fragmentManager = getFragmentManager();
-			fragmentManager.beginTransaction()
-					.replace(R.id.frame_container, searchFragment).commit();
+				Fragment myFragment = (Fragment)getFragmentManager().findFragmentByTag("MyFragment");
+				
+				if(myFragment == null)				
+				fragmentManager.beginTransaction()
+					.replace(R.id.frame_container, searchFragment,"MyFragment").commit();
+				else
+					fragmentManager.beginTransaction().remove(myFragment).add(searchFragment, "MyFragment").commit();
+			
+			
 		}
 
 	}
@@ -189,9 +196,21 @@ public class NavigationSearchActivity extends Activity {
 		Fragment fragment = fragmentList.get(position);
 
 		if (fragment != null) {
+			
+			
+			
+			
+			
 			FragmentManager fragmentManager = getFragmentManager();
+			
+			Fragment myFragment = (Fragment)getFragmentManager().findFragmentByTag("MyFragment");
+			
+			//if(myFragment == null)	
 			fragmentManager.beginTransaction()
-					.replace(R.id.frame_container, fragment).commit();
+					.replace(R.id.frame_container, fragment,"MyFragment").commit();
+			//else
+			//	fragmentManager.beginTransaction().remove(myFragment).add(fragment, "MyFragment").commit();
+			
 
 			// update selected item and title, then close the drawer
 			mDrawerList.setItemChecked(position, true);
