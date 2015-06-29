@@ -166,13 +166,16 @@ public class NavigationSearchActivity extends Activity {
 
 		if (searchFragment != null) {
 			FragmentManager fragmentManager = getFragmentManager();
-				Fragment myFragment = (Fragment)getFragmentManager().findFragmentByTag("MyFragment");
+				//Fragment myFragment = (Fragment)getFragmentManager().findFragmentByTag("MyFragment");
 				
-				if(myFragment == null)				
+				fragmentManager.beginTransaction().remove(getFragmentManager().findFragmentById(R.id.frame_container)).commit();
 				fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, searchFragment,"MyFragment").commit();
-				else
+				
+				/*else
+				{
 					fragmentManager.beginTransaction().remove(myFragment).add(searchFragment, "MyFragment").commit();
+				}*/
 			
 			
 		}
@@ -203,9 +206,10 @@ public class NavigationSearchActivity extends Activity {
 			
 			FragmentManager fragmentManager = getFragmentManager();
 			
-			Fragment myFragment = (Fragment)getFragmentManager().findFragmentByTag("MyFragment");
+			//Fragment myFragment = (Fragment)getFragmentManager().findFragmentByTag("MyFragment");
 			
 			//if(myFragment == null)	
+		//	fragmentManager.beginTransaction().remove(getFragmentManager().findFragmentById(R.id.frame_container)).commit();
 			fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, fragment,"MyFragment").commit();
 			//else
