@@ -1,6 +1,4 @@
-package com.example.testnavigationdrawer.fragment;
-
-import com.example.testnavigationdrawer.R;
+package com.nikhil.navigationdrawer.test.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,17 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nikhil.navigationdrawer.test.R;
 
-
-public class HomeFragment extends Fragment {
+public class WhatsHotFragment extends Fragment {
 	
-	public HomeFragment(){}
+	public WhatsHotFragment(){}
+	
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_whats_hot, container, false);
          
         return rootView;
     }

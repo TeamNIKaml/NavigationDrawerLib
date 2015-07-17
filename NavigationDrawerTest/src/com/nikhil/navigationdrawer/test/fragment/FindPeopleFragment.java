@@ -1,6 +1,4 @@
-package com.example.testnavigationdrawer.fragment;
-
-import com.example.testnavigationdrawer.R;
+package com.nikhil.navigationdrawer.test.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,17 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nikhil.navigationdrawer.test.R;
 
 
-public class PagesFragment extends Fragment {
+
+public class FindPeopleFragment extends Fragment {
 	
-	public PagesFragment(){}
+	public FindPeopleFragment(){}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_pages, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_find_people, container, false);
          
         return rootView;
     }

@@ -1,4 +1,4 @@
-package com.example.testnavigationdrawer;
+package com.nikhil.navigationdrawer.test.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +10,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.testnavigationdrawer.fragment.CommunityFragment;
-import com.example.testnavigationdrawer.fragment.FindPeopleFragment;
-import com.example.testnavigationdrawer.fragment.HomeFragment;
-import com.example.testnavigationdrawer.fragment.PagesFragment;
-import com.example.testnavigationdrawer.fragment.PhotosFragment;
-import com.example.testnavigationdrawer.fragment.WhatsHotFragment;
-import com.teamnikaml.navigationdrawerlib.activity.NavigationDrawerActivity;
+import com.nikhil.navigationdrawer.test.R;
+import com.nikhil.navigationdrawer.test.fragment.CommunityFragment;
+import com.nikhil.navigationdrawer.test.fragment.FindPeopleFragment;
+import com.nikhil.navigationdrawer.test.fragment.HomeFragment;
+import com.nikhil.navigationdrawer.test.fragment.PagesFragment;
+import com.nikhil.navigationdrawer.test.fragment.PhotosFragment;
+import com.nikhil.navigationdrawer.test.fragment.WhatsHotFragment;
 import com.teamnikaml.navigationdrawerlib.activity.NavigationSearchActivity;
 import com.teamnikaml.navigationdrawerlib.model.Mapper;
 import com.teamnikaml.navigationdrawerlib.model.NavDrawerItem;
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 				R.drawable.ic_photos, R.drawable.ic_communities,
 				R.drawable.ic_pages, R.drawable.ic_whats_hot };
 
-		navigationDrawerItemList = new ArrayList<>();
+		navigationDrawerItemList = new ArrayList<NavDrawerItem>();
 		NavDrawerItem drawerItem;
 
 		for (int i = 0; i < 6; i++) {
