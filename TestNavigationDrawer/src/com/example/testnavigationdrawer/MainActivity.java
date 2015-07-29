@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 				R.drawable.ic_photos, R.drawable.ic_communities,
 				R.drawable.ic_pages, R.drawable.ic_whats_hot };
 
-		navigationDrawerItemList = new ArrayList<>();
+		navigationDrawerItemList = new ArrayList<NavDrawerItem>();
 		NavDrawerItem drawerItem;
 
 		for (int i = 0; i < 6; i++) {
